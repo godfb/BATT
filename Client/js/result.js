@@ -18,4 +18,7 @@ var Result = React.createClass({
   clickEventHandler: function(itemReactObject) {
       this.props.onDoubleclickEvent(itemReactObject);
   },
+  displayResults: function(data){
+    console.log("data", data);
+  },
 });

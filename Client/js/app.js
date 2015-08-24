@@ -6,13 +6,16 @@ var Application = React.createClass({
             <NavBar/>
         </div>
         <div id="searchBar" className="row">
-            <SearchBar/>
+            <SearchBar  onNewResultsAvailable={this.displayNewResults} />
         </div>
         <div id="results" className="row">
         </div>
       </div>
     );
-  }
+  },
+  displayNewResults: function(data) {
+  	this.refs.results.setState({value:data});
+  },
 });
 React.render(
   <Application />,

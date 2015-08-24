@@ -1,5 +1,6 @@
 var SearchBar = React.createClass({
     propTypes: {
+		onNewResultsAvailable: React.PropTypes.func.isRequired,
         onChangeEvent: React.PropTypes.func.isRequired
     },
     render: function() {
@@ -14,15 +15,15 @@ var SearchBar = React.createClass({
         );
     },
     search: function(query){
+        var self = this;
         var daQuery = {"query": query}
-        console.log(JSON.stringify(daQuery));
         $.ajax({
             url: "http://localhost:3000/search",
             type: 'POST',
             data: JSON.stringify(daQuery),
             contentType: 'application/json',
             success: function (data) {
-                console.log('query successful.');
+                console.log('query successful, recieved', data);
                 if (self.props.onNewResultsAvailable){
                     self.props.onNewResultsAvailable(data.results);
                 }
@@ -31,7 +32,7 @@ var SearchBar = React.createClass({
               console.error('failed to retrieve data.');
             },
             complete: function (data) {
-              console.error('query finished');
+              console.log('query finished');
             }
         });
     }, 
@@ -43,11 +44,8 @@ var SearchBar = React.createClass({
     var textValue = event.target.value;
     this.lastTimer = setTimeout(function(){
         clearTimeout(self.lastTimer);
-        lastTimer = null;
+        this.lastTimer = null;
         self.search(textValue);
-        // if (self.props.onNewResultsAvailable){
-        //  self.props.onNewResultsAvailable(textValue);
-        // }
     }, 1000);
   },
   onChangeEvent: function() {
