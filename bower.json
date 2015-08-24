@@ -1,0 +1,21 @@
+{
+  "name": "BATT",
+  "version": "1.0.0",
+  "homepage": "https://github.com/godfb/BATT",
+  "authors": [
+    "Brandon Godfrey"
+  ],
+  "description": "Better Acronyms Than TAD",
+  "main": "server.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

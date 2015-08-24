@@ -1,0 +1,19 @@
+{
+  "name": "batt",
+  "version": "1.0.0",
+  "description": "Better Acronyms Than TAD",
+  "main": "server.js",
+  "scripts": {
+    "test": "Run Test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/godfb/BATT.git"
+  },
+  "author": "Brandon Godfrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/godfb/BATT/issues"
+  },
+  "homepage": "https://github.com/godfb/BATT#readme"
+}

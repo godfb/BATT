@@ -1,0 +1,7 @@
+body {
+	background-color: lightgray;
+}
+
+.blurIt {
+    box-shadow: 0 0 4px 4px black inset;
+}
