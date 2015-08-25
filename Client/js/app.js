@@ -8,7 +8,8 @@ var Application = React.createClass({
         <div id="searchBar" className="row">
             <SearchBar  onNewResultsAvailable={this.displayNewResults} />
         </div>
-        <div id="results" className="row">
+        <div className="row">
+            <Result ref="results"/>
         </div>
       </div>
     );

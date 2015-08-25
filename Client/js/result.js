@@ -1,24 +1,29 @@
 var Result = React.createClass({
   render: function() {
+            console.log(this.state);
+    
+    if (this.state.value){
       return (
-      <div className='result col s6 m4 l3'>
-        <div id='' className='card blue-grey darken-1'>
-          <div className='card-content white-text'>
-            <span className='card-title'>AD</span>
-            <p>Autodesk</p>
-          </div>
-          <div className='card-action'>
-            <p>Autodesk Related</p>
-            <a>Report Link</a>
-          </div>
+        <div className="results content">
+          {
+            this.state.value.data.map(function(item, i){
+              return (<Card query={this.state.value.query} data={item[i]} onDoubleclickEvent={this.doubleclickEventHandler} />)
+            }, this)
+          }
         </div>
-      </div>
-    );
+      );
+    }
+    else{
+      return <div className="results content"/>
+    }
   },
   clickEventHandler: function(itemReactObject) {
       this.props.onDoubleclickEvent(itemReactObject);
   },
-  displayResults: function(data){
-    console.log("data", data);
+  getInitialState: function(){
+    return {value:null};
   },
+  handleChange: function(event) {
+    this.setState({value: event.target.value});
+  }
 });

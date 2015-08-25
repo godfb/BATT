@@ -5,16 +5,15 @@ var SearchBar = React.createClass({
     },
     render: function() {
         return (
-            <form className="col s12">
-                <div className="row">
-                    <div className="browser-default input-field col s6 offset-s3 animated bounceInLeft blurIt white">
-                      <input placeholder="Enter Your Acronym!" id="acronymBox" type="text" onChange={this.handleChange} className="validate"/>
-                    </div>
+            <div className="col s12 row">
+                <div className="browser-default input-field col s6 offset-s3 animated bounceInLeft blurIt white">
+                    <input placeholder="Enter Your Acronym!" id="acronymBox" type="text" onChange={this.handleChange} className="validate"/>
                 </div>
-            </form>
+            </div>
         );
     },
     search: function(query){
+        var returnObj = {"query": query};
         var self = this;
         var daQuery = {"query": query}
         $.ajax({
@@ -25,7 +24,9 @@ var SearchBar = React.createClass({
             success: function (data) {
                 console.log('query successful, recieved', data);
                 if (self.props.onNewResultsAvailable){
-                    self.props.onNewResultsAvailable(data.results);
+                    returnObj.data = data;
+                    console.log(returnObj);
+                    self.props.onNewResultsAvailable(returnObj);
                 }
             },
             error: function (data) {

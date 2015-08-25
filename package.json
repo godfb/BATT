@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/godfb/BATT/issues"
   },
-  "homepage": "https://github.com/godfb/BATT#readme"
+  "homepage": "https://github.com/godfb/BATT#readme",
+  "dependencies": {
+    "underbar": "^0.1.0"
+  }
 }
