@@ -15,8 +15,15 @@ var server = app.listen(app.get('port'), function() {
     console.log('Server listening on port ' + server.address().port);
 });
 
+app.configure(function(){
+  app.use(function(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    return next();
+  });
+});
+
 app.post('/search', function(req, res) {
-    
+    res.setHeader("Access-Control-Allow-Origin", "*");
     console.log(req.body.query + '" --> "' + db[req.body.query] + '".');
     if (req.body) {
         if (!db[req.body.query]){
