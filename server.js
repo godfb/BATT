@@ -16,11 +16,6 @@ var server = app.listen(app.get('port'), function() {
 });
 
 app.post('/search', function(req, res) {
-    res.setHeaders({
-        'Access-Control-Allow-Origin': '*',
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "content-type, accept"
-    })
     console.log(req.body.query + '" --> "' + db[req.body.query] + '".');
     if (req.body) {
         if (!db[req.body.query]){
@@ -34,17 +29,6 @@ app.post('/search', function(req, res) {
         res.sendStatus(400);
     }
 });
-
-app.options('/search', function(req, res){
-    res.setHeaders({
-        'Access-Control-Allow-Origin': '*',
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "content-type, accept"
-    })
-    
-    res.end();
-});
-
 
 
 
