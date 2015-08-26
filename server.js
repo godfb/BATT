@@ -31,7 +31,15 @@ app.post('/search', function(req, res) {
     }
 });
 
-
+app.options('/search', function(req, res){
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "content-type, accept"
+    })
+    
+    res.end();
+});
 
 
 
