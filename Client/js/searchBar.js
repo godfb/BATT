@@ -17,7 +17,7 @@ var SearchBar = React.createClass({
         var self = this;
         var daQuery = {"query": query}
         $.ajax({
-            url: "http://batt.herokuapp.com",
+            url: "https://batt.heroku.com/search",
             type: 'POST',
             data: JSON.stringify(daQuery),
             contentType: 'application/json',
