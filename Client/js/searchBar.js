@@ -17,12 +17,12 @@ var SearchBar = React.createClass({
         var self = this;
         var daQuery = {"query": query}
         $.ajax({
-            url: "https://batt.heroku.com/search",
+            url: "/search",
             type: 'POST',
             data: JSON.stringify(daQuery),
             contentType: 'application/json',
             success: function (data) {
-                console.log('query successful, recieved', data);
+                console.log('query successful, recieved:', data);
                 if (self.props.onNewResultsAvailable){
                     returnObj.data = data;
                     console.log(returnObj);
