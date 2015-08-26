@@ -7,7 +7,7 @@ var Result = React.createClass({
         <div className="results content">
           {
             this.state.value.data.map(function(item, i){
-              return (<Card query={this.state.value.query} data={item[i]} onDoubleclickEvent={this.doubleclickEventHandler} />)
+              return (<Card query={this.state.value.query} data={item} onDoubleclickEvent={this.doubleclickEventHandler} />)
             }, this)
           }
         </div>
