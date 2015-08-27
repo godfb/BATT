@@ -19,13 +19,23 @@ app.post('/search', function(req, res) {
     if (req.body) {
         req.body.query = req.body.query.toUpperCase();
         console.log(req.body.query + '" --> "' + db[req.body.query] + '".');
+        console.log(req.body.query);
         var returnObj = {};
-        returnObj.query = req.body.query;
-        if (!db[req.body.query]){
+        if (req.body.query === ""){
+            console.log("made it here");
+            returnObj.query = "";
             returnObj.data = [];
             res.send(returnObj);
         }
+        else if (!db[req.body.query]){
+            var emptyReturn = [];
+            emptyReturn[0] = "We don't have that acronym...   : ("
+            returnObj.query = "Disaster!";
+            returnObj.data = emptyReturn;
+            res.send(returnObj);
+        }
         else{
+            returnObj.query = req.body.query;
             returnObj.data = db[req.body.query];
             res.send(returnObj); 
         }
