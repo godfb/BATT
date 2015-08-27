@@ -13,7 +13,7 @@ var SearchBar = React.createClass({
         );
     },
     search: function(query){
-        var returnObj = {"query": query};
+        var returnObj = {};
         var self = this;
         var daQuery = {"query": query}
         $.ajax({
@@ -21,10 +21,11 @@ var SearchBar = React.createClass({
             type: 'POST',
             data: JSON.stringify(daQuery),
             contentType: 'application/json',
-            success: function (data) {
-                console.log('query successful, recieved:', data);
+            success: function (response) {
+                console.log('query successful, recieved:', response);
                 if (self.props.onNewResultsAvailable){
-                    returnObj.data = data;
+                    returnObj.query = response.query
+                    returnObj.data = response.data;
                     console.log(returnObj);
                     self.props.onNewResultsAvailable(returnObj);
                 }

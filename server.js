@@ -16,19 +16,23 @@ var server = app.listen(app.get('port'), function() {
 });
 
 app.post('/search', function(req, res) {
-    req.body.query = req.body.query.toUpperCase();
-    console.log(req.body.query + '" --> "' + db[req.body.query] + '".');
     if (req.body) {
+        req.body.query = req.body.query.toUpperCase();
+        console.log(req.body.query + '" --> "' + db[req.body.query] + '".');
+        var returnObj = {};
+        returnObj.query = req.body.query;
         if (!db[req.body.query]){
-            res.send([]); 
+            returnObj.data = [];
+            res.send(returnObj);
         }
         else{
-            res.send(db[req.body.query]); 
+            returnObj.data = db[req.body.query];
+            res.send(returnObj); 
         }
-        res.end();
     }else{
         res.sendStatus(400);
     }
+    res.end();
 });
 
 
