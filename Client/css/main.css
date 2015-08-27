@@ -6,8 +6,7 @@ body {
     box-shadow: 0 0 4px 4px black inset;
 }
 
-formBack {
-	z-index: 50;
-	background-color: black;
-	padding: 20px;
+.menu {
+	padding-left: 15px;
+	padding-right: 15px;
 }

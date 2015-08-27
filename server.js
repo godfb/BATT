@@ -16,6 +16,7 @@ var server = app.listen(app.get('port'), function() {
 });
 
 app.post('/search', function(req, res) {
+    req.body.query = req.body.query.toUpperCase();
     console.log(req.body.query + '" --> "' + db[req.body.query] + '".');
     if (req.body) {
         if (!db[req.body.query]){
