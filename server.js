@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var data = require("./data.js");
-var twilio = require('twilio')(ENV['TwilioKey'], ENV['TwilioSecret']);
+var twilio = require('twilio')(process.env['TwilioKey'], process.env['TwilioSecret']);
 
 
 //var db = JSON.parse(data);
@@ -40,7 +40,7 @@ app.post('/search', function(req, res) {
         else{   
             twilio.sms.messages.create({
                 to:'+16602386981',
-                    from:ENV['TwilioNumber'],
+                    from:process.env['TwilioNumber'],
                 body:searchString
                 }, 
                 function(error, message) {
