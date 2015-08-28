@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/godfb/BATT#readme",
   "dependencies": {
+    "pg": "4.4.1",
     "underbar": "^0.1.0"
   }
 }

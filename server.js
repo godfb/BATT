@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser')
 var data = require("./data.js")
+var twilio = require('twilio')('AC35f4cc323e54b4bdd182dd6892281dd5', '5be1c479a53713dc922e553d91e58f51');
+
 
 //var db = JSON.parse(data);
 
@@ -18,7 +20,8 @@ var server = app.listen(app.get('port'), function() {
 app.post('/search', function(req, res) {
     if (req.body) {
         req.body.query = req.body.query.toUpperCase();
-        console.log(req.body.query + '" --> "' + db[req.body.query] + '".');
+        var searchString = req.body.query + '" --> "' + db[req.body.query] + '".';
+        console.log(searchString);
         console.log(req.body.query);
         var returnObj = {};
         if (req.body.query === ""){
@@ -34,7 +37,24 @@ app.post('/search', function(req, res) {
             returnObj.data = emptyReturn;
             res.send(returnObj);
         }
-        else{
+        else{   
+            twilio.sms.messages.create({
+                to:'+16602386981',
+                from:'16602623183',
+                body:searchString
+                }, 
+                function(error, message) {
+                    if (!error) {
+                        console.log('Success! The SID for this SMS message is:');
+                        console.log(message.sid);
+                
+                        console.log('Message sent on:');
+                        console.log(message.dateCreated);
+                    } else {
+                        console.log('Oops! There was an error.');
+                        console.log(error);
+                }
+            });
             returnObj.query = req.body.query;
             returnObj.data = db[req.body.query];
             res.send(returnObj); 
