@@ -12,21 +12,20 @@ var Report = React.createClass({
         return { shouldHide: true };
     },
   render: function() {      
-    console.log("rendering...");
     return (
       <div className="form col s12 m8 l6 highZ">
-        <form className="col s12 row" autocomplete="off">
+        <form className="col s12 row">
             <div className="browser-default input-field offset-m2 offset-l3">
-                <input placeholder="Acronym" ref="acronymBox" type="text" onChange={this.handleChange} className="validate"/>
+                <input placeholder="Acronym" ref="acronymBox" type="text" onChange={this.handleChange} className="validate formInput"/>
             </div>
             <div className="browser-default input-field">
-                <input placeholder="Definition (optional)" ref="definitionBox" type="text" className="validate"/>
+                <input placeholder="Definition (optional)" ref="definitionBox" type="text" className="validate formInput"/>
             </div>
             <div className="browser-default input-field">
-                <input placeholder="Context (optional)" ref="contextBox" type="text" className="validate"/>
+                <input placeholder="Context (optional)" ref="contextBox" type="text" className="validate formInput"/>
             </div>
             <div className="browser-default input-field">
-                <input placeholder="Email (optional)" ref="emailBox" type="text" className="validate"/>
+                <input placeholder="Email (optional)" ref="emailBox" type="text" className="validate formInput"/>
             </div>
             <a id="submit" onClick={this.handleClick} className={this.props.submitClass}>Submit</a>
         </form>
@@ -38,14 +37,11 @@ var Report = React.createClass({
         if(event.target.value === "") {
             this.props.submitClass = "disabled waves-effect waves-light btn animated fadeOut";
             this.setState({ shouldHide: true });
-            console.log('empty');
         }
         else {
             this.props.submitClass = "waves-effect waves-light btn animated fadeIn";
             this.setState({ shouldHide: false });
-            console.log("full");
         }
-        console.log(this.state.shouldHide);
   },
       submit: function(submission){
         var returnObj = {};
@@ -57,13 +53,13 @@ var Report = React.createClass({
             data: JSON.stringify(daDubmission),
             contentType: 'application/json',
             success: function (response) {
-                console.log('query successful posted:', response);
+                //console.log('query successful posted:', response);
             },
             error: function (data) {
-              console.error('failed to post acronym :(');
+              //console.error('failed to post acronym :(');
             },
             complete: function (data) {
-              console.log('finished posting');
+              //console.log('finished posting');
             }
         });
     }, 
@@ -74,7 +70,6 @@ var Report = React.createClass({
                 postObject.Definition = React.findDOMNode(this.refs.definitionBox).value;
                 postObject.Context = React.findDOMNode(this.refs.contextBox).value;
                 postObject.Email = React.findDOMNode(this.refs.emailBox).value;
-                console.log(postObject);
                 this.submit(postObject);
             if (this.props.onAcronymsSubmit) {
                 this.props.onAcronymsSubmit();

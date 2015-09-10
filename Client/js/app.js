@@ -37,9 +37,9 @@ var Application = React.createClass({
     );
   },
   overlayClicked: function() {
-    console.log(event.target);
-    if (event.target.id === "overlay")
-    this.destroyOverlay();
+    if (event.target.id === "overlay"){
+      this.destroyOverlay();
+    }
   },
   getInitialState: function() {
     return {showAcronymRequest: false};

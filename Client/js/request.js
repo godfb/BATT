@@ -9,7 +9,6 @@ var RequestButton = React.createClass({
       	);
 	},
     handleClick: function(itemReactObject) {
-      console.log("ayy lmao");
       this.props.onNewResultsAvailable(); 
     }
 });

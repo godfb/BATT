@@ -1,6 +1,5 @@
 var NavBar = React.createClass({
   propTypes: {
-    batonPass: React.PropTypes.func.isRequired,
     onAcronymRequested: React.PropTypes.func.isRequired
   },
   render: function() {
@@ -8,7 +7,7 @@ var NavBar = React.createClass({
 	      <nav>
 	        <div className="nav-wrapper">
 	          <a href="#" className="brand-logo center">BATT</a>
-	          <ul id="nav-mobile" className="center right hide-on-med-and-down">
+	          <ul id="nav-mobile" className="center right hide-on-small-only">
 	            <RequestButton onNewResultsAvailable={this.batonPass}/>
 	          </ul>
 	        </div>
@@ -16,7 +15,6 @@ var NavBar = React.createClass({
       	);
   	},
     batonPass: function() {
-      console.log("baton passing...")
         if (this.props.onAcronymRequested) {
             this.props.onAcronymRequested();
         }

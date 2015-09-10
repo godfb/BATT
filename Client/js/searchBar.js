@@ -22,19 +22,19 @@ var SearchBar = React.createClass({
             data: JSON.stringify(daQuery),
             contentType: 'application/json',
             success: function (response) {
-                console.log('query successful, recieved:', response);
+                // console.log('query successful, recieved:', response);
                 if (self.props.onNewResultsAvailable){
                     returnObj.query = response.query
                     returnObj.data = response.data;
-                    console.log(returnObj);
+                    // con  sole.log(returnObj);
                     self.props.onNewResultsAvailable(returnObj);
                 }
             },
             error: function (data) {
-              console.error('failed to retrieve data.');
+              // console.error('failed to retrieve data.');
             },
             complete: function (data) {
-              console.log('query finished');
+              // console.log('query finished');
             }
         });
     }, 
@@ -47,7 +47,15 @@ var SearchBar = React.createClass({
     this.lastTimer = setTimeout(function(){
         clearTimeout(self.lastTimer);
         this.lastTimer = null;
-        self.search(textValue);
+        if (!!textValue){
+            self.search(textValue);
+        }
+        else{
+            var blankObj = {}
+            blankObj.query = "";
+            blankObj.data = [];
+            self.props.onNewResultsAvailable(blankObj);
+        }
     }, 1000);
   },
   onChangeEvent: function() {

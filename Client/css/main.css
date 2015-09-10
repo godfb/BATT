@@ -26,6 +26,19 @@ html, body
   z-index: 20;
 }
 
+input.formInput, select.formInput, textarea.formInput{
+    color: white;
+}
+
+input[type="text"].formInput{
+  
+  color: #ddd;
+}
+
+textarea:focus.formInput, input:focus.formInput {
+    color: white;
+}
+
 .form {
   text-align: center;
   margin:auto;

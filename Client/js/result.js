@@ -1,7 +1,5 @@
 var Result = React.createClass({
-  render: function() {
-            console.log(this.state);
-    
+  render: function() {    
     if (this.state.value){
       return (
         <div className="results content">
