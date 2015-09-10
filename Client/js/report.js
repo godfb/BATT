@@ -20,13 +20,13 @@ var Report = React.createClass({
                 <input placeholder="Acronym" ref="acronymBox" type="text" onChange={this.handleChange} className="validate"/>
             </div>
             <div className="browser-default input-field">
-                <input placeholder="Definition (optional)" ref="definitionBox" type="text" onChange={this.handleChange} className="validate"/>
+                <input placeholder="Definition (optional)" ref="definitionBox" type="text" className="validate"/>
             </div>
             <div className="browser-default input-field">
-                <input placeholder="Context (optional)" ref="contextBox" type="text" onChange={this.handleChange} className="validate"/>
+                <input placeholder="Context (optional)" ref="contextBox" type="text" className="validate"/>
             </div>
             <div className="browser-default input-field">
-                <input placeholder="Email (optional)" ref="emailBox" type="text" onChange={this.handleChange} className="validate"/>
+                <input placeholder="Email (optional)" ref="emailBox" type="text" className="validate"/>
             </div>
             <a id="submit" onClick={this.handleClick} className={this.props.submitClass}>Submit</a>
         </form>
