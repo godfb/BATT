@@ -7,7 +7,7 @@ var SearchBar = React.createClass({
         return (
             <div className="col s12 row">
                 <div className="browser-default input-field col s6 offset-s3 animated bounceInLeft blurIt white">
-                    <input placeholder="Enter Your Acronym!" id="acronymBox" type="text" onChange={this.handleChange} className="validate"/>
+                    <input type="text" autocomplete="noautocomplete" placeholder="Enter Your Acronym!" id="acronymBox" onChange={this.handleChange} className="validate"/>
                 </div>
             </div>
         );
@@ -26,6 +26,7 @@ var SearchBar = React.createClass({
                 if (self.props.onNewResultsAvailable){
                     returnObj.query = response.query
                     returnObj.data = response.data;
+                    returnObj.empty = response.empty;
                     // con  sole.log(returnObj);
                     self.props.onNewResultsAvailable(returnObj);
                 }

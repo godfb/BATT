@@ -6,7 +6,7 @@ var NavBar = React.createClass({
       return (
 	      <nav>
 	        <div className="nav-wrapper">
-	          <a href="#" className="brand-logo center">BATT</a>
+	          <a className="brand-logo center unselectable">BATT</a>
 	          <ul id="nav-mobile" className="center right hide-on-small-only">
 	            <RequestButton onNewResultsAvailable={this.batonPass}/>
 	          </ul>

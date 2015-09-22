@@ -39,6 +39,23 @@ textarea:focus.formInput, input:focus.formInput {
     color: white;
 }
 
+.maxFidy{
+  max-width: 100%;
+}
+
+.clickMe{
+  cursor: pointer;
+  cursor: hand;
+}
+
+.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
 .form {
   text-align: center;
   margin:auto;
@@ -46,6 +63,8 @@ textarea:focus.formInput, input:focus.formInput {
   width: 50%;
 	padding-left: 15px;
 	padding-right: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
   background-color: rgba(0,0,0,0.5);
   vertical-align: middle;
 }

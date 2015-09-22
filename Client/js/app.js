@@ -9,11 +9,11 @@ var Application = React.createClass({
     var overlayClass= "";
     if (this.state.overlayState === 1){
       overlayClass= "overlay";
-      overlayForm = <Report onAcronymsSubmit={this.destroyOverlay}/>;
+      overlayForm = <RequestForm onAcronymsSubmit={this.destroyOverlay}/>;
     }
     else if (this.state.overlayState === 2){
       overlayClass= "overlay";
-      overlayForm = "";
+      overlayForm = <ReportForm name={this.props.reportName} def={this.props.reportDef} onAcronymsSubmit={this.destroyOverlay}/>;
     }
     else{
       overlayForm = "";
@@ -31,7 +31,7 @@ var Application = React.createClass({
               <SearchBar  onNewResultsAvailable={this.displayNewResults} />
           </div>
           <div className="row">
-              <Result ref="results"/>
+              <Result ref="results" onLinkReported={this.displayLinkReported}/>
           </div>
         </div>
     );
@@ -52,6 +52,11 @@ var Application = React.createClass({
   },
   destroyOverlay: function() {
     this.setState({ overlayState: 0 });
+  },
+  displayLinkReported: function(acro, def) {
+    this.props.reportName = acro;
+    this.props.reportDef = def;
+    this.setState({ overlayState: 2 });
   }
 });
 React.render(

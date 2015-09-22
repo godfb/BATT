@@ -5,7 +5,7 @@ var RequestButton = React.createClass({
   },
   render: function() {
       return (
-			<li className="menu" onClick={this.handleClick}>Request Missing Acronym!</li>
+			<li className="menu clickMe" onClick={this.handleClick}>Request Missing Acronym!</li>
       	);
 	},
     handleClick: function(itemReactObject) {
