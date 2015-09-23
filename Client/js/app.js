@@ -15,14 +15,18 @@ var Application = React.createClass({
       overlayClass= "overlay";
       overlayForm = <ReportForm name={this.props.reportName} def={this.props.reportDef} onAcronymsSubmit={this.destroyOverlay}/>;
     }
+    else if (this.state.overlayState === 3){
+      overlayClass= "overlay";
+      overlayForm = <DisplayForm name={this.props.reportName} def={this.props.reportDef} onAcronymsSubmit={this.destroyOverlay}/>;
+    }
     else{
       overlayForm = "";
     }
     
     return (
         <div className="application">
-          <div id="navBar" className="row">
-              <NavBar onAcronymRequested={this.displayAcronymRequested}/>
+          <div id="navBar" className="indigo row">
+              <NavBar className="indigo" onDisplayRequested={this.displayDisplayRequested} onAcronymRequested={this.displayAcronymRequested}/>
           </div>
           <div id="overlay" onClick={this.overlayClicked} className={overlayClass}>
             {overlayForm}
@@ -49,6 +53,9 @@ var Application = React.createClass({
   },
   displayAcronymRequested: function() {
     this.setState({ overlayState: 1 });
+  },
+  displayDisplayRequested: function() {
+    this.setState({ overlayState: 3 });
   },
   destroyOverlay: function() {
     this.setState({ overlayState: 0 });

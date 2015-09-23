@@ -17,6 +17,11 @@ var server = app.listen(app.get('port'), function() {
     console.log('Server listening on port ' + server.address().port);
 });
 
+app.get('/requestAll', function(req, res) {
+    res.send(db);
+    res.end();
+});
+
 app.post('/search', function(req, res) {
     if (req.body) {
         req.body.query = req.body.query.toUpperCase();
@@ -49,8 +54,8 @@ app.post('/search', function(req, res) {
     }else{
         res.sendStatus(400);
     }
-    res.end();}
-);
+    res.end();
+});
 
 app.post('/submitAcronym', function(req, res) {
     

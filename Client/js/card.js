@@ -18,7 +18,7 @@ var Card = React.createClass({
     }
       return (
       <div className='result col s12 m6 l4'>
-        <div id='' className='card blue-grey darken-1'>
+        <div id='' className='card deep-orange darken-4'>
           <div className='card-content white-text'>
             <span className='card-title'>{query}</span>
             <p>{data}</p>

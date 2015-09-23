@@ -11,7 +11,7 @@ var ReportForm = React.createClass({
     getInitialState: function() {
         return { shouldHide: true };
     },
-  render: function() {      
+  render: function() {
     return (
       <div className="form col s12 m8 l6 highZ">
         <form className="col s12 row">

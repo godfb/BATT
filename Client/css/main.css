@@ -1,5 +1,5 @@
 body {
-	background-color: lightgray;
+	background-color: #333;
   	position: relative;
   	min-height: 100%;
 }
@@ -9,9 +9,13 @@ html, body
     height: 100%;
 }
 
-.blurIt {
-    box-shadow: 0 0 4px 4px black inset;
+.navigationbar{
+    color: navy;
 }
+
+/*.blurIt {
+    box-shadow: 0 0 4px 4px black inset;
+}*/
 
 .menu {
 	padding-left: 45px;
@@ -41,6 +45,10 @@ textarea:focus.formInput, input:focus.formInput {
 
 .maxFidy{
   max-width: 100%;
+}
+
+.vertFidy{
+  min-height: 300px;
 }
 
 .clickMe{

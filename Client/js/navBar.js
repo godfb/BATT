@@ -4,10 +4,11 @@ var NavBar = React.createClass({
   },
   render: function() {
       return (
-	      <nav>
-	        <div className="nav-wrapper">
+	      <nav className="yellow darken-3">
+	        <div className="navy nav-wrapper">
 	          <a className="brand-logo center unselectable">BATT</a>
 	          <ul id="nav-mobile" className="center right hide-on-small-only">
+	            <DisplayButton onDisplayRequested={this.passDisplayUp}/>
 	            <RequestButton onNewResultsAvailable={this.batonPass}/>
 	          </ul>
 	        </div>
@@ -16,6 +17,11 @@ var NavBar = React.createClass({
   	},
     batonPass: function() {
         if (this.props.onAcronymRequested) {
+            this.props.onAcronymRequested();
+        }
+    },
+    passDisplayUp: function() {
+        if (this.props.onDisplayRequested()) {
             this.props.onAcronymRequested();
         }
     }
