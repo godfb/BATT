@@ -18,7 +18,7 @@ var DisplayForm = React.createClass({
     return (
       <div className="form col s12 m8 l6 highZ">
         <form className="col s12 row">
-            <textarea onChange={this.handleChange} id="textarea1" value={this.state.displayAcronyms} ref="description" className="maxFidy vertFidy validate formInput row"></textarea>
+            <textarea disabled onChange={this.handleChange} id="textarea1" value={this.state.displayAcronyms} ref="description" className="maxFidy vertFidy formInput row"></textarea>
         </form>
       </div>
     )
